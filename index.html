@@ -5,26 +5,40 @@
 <head>
     <meta charset="UTF-8">
     <title>John Chin</title>
-    <link rel="stylesheet" type="text/css" href="Stylesheet/portfolio.css">
+    <link rel="stylesheet" type="text/css" href="Stylesheet/Portfolio.css">
+    <script src="JS/Portfolio.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <!-- Body -->
 <body class="Background">
 
+<!-- Fade in effect -->
+<script>
+    document.body.className += ' fade-out';
+        $(function() {
+            $('body').removeClass('fade-out');
+        }
+    );
+</script>
+
 <!-- Navbar -->
     <div class="Navbar">
         <a class="active" href="#Home">Home</a>
+        <a href="#Slideshow">Slideshow</a>
         <a href="#About">About</a>
         <a href="#GitHub">GitHub</a>
-        <a href="#Contact">Contact</a>
+        <a onclick="openForm()">Contact</a>
     </div>
 
+    <div class="btn cancel" onclick="closeForm()">
+
 <!-- Home -->
+    <div id="Home">
         <br>
         <br>
 
 <!-- Video -->
-    <div id="Home">
         <video autoplay muted loop id="Coding_Video">
             <source src="Stylesheet/Video/Coding.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
@@ -40,12 +54,100 @@
                         <q>The computer programmer is a creator of universes for which he alone is the lawgiver.</q>
                         <br>-Joseph Weizenbaum<br>
                         <br>
-                        My name is John Chin, and I am a software developer. Welcome to my portfolio website!<br>Please look through it for an overview of my background and experience.<br>
-                        <br>Thank you for visiting!
+                        My name is John Chin. Welcome to my software development portfolio site!<br>Here I present an overview of my background and experience.<br>
+                        <br>Thank you for visiting and enjoy!
                     </center>
                 </strong>
             </p>
     </div>
+
+<!-- Slideshow section -->
+    <div id="Slideshow">
+        <div id="Slideshow_Background">
+            <div id="Slideshow_Container">
+
+                <div class="mySlides fade">
+                    <div class="Slide_Number">1 / 6</div>
+                        <img class="Slide_Show_Images" src="Stylesheet/Images/John_Chin_profile.JPG" style="width:100%">
+                            <div class="text">I am available to assist you on your project!</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="Slide_Number">2 / 6</div>
+                        <img class="Slide_Show_Images" src="Stylesheet/Images/HTML_CSS_and_JavaScript.jpeg" style="width:100%">
+                            <div class="text">I'm a full-stack software developer,<br> trained in:<br>HTML, CSS, JavaScript,</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="Slide_Number">3 / 6</div>
+                        <img class="Slide_Show_Images" src="Stylesheet/Images/Python.png" style="width:100%">
+                            <div class="text">the popular programming language Python,</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="Slide_Number">4 / 6</div>
+                        <img class="Slide_Show_Images" src="Stylesheet/Images/C_Sharp_and_Dot_NET.png" style="width:100%">
+                            <div class="text">C#, .NET Framework, ASP.NET, MVC,</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="Slide_Number">5 / 6</div>
+                        <img class="Slide_Show_Images" src="Stylesheet/Images/SQL_and_Database.jpg" style="width:100%">
+                            <div class="text">back end development, databases and SQL.</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="Slide_Number">6 / 6</div>
+                        <img class="Slide_Show_Images" src="Stylesheet/Images/Coding_1.jpg" style="width:100%">
+                            <div class="text">
+                                <a onclick="openForm()" href="#Contact" style="color:white;">Contact me now!</a></div>
+                </div>
+
+                    <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+            
+            </div>
+         <br>
+
+            <div style="text-align: center">
+            
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+            
+            </div>
+        </div>
+    </div>
+
+<!-- JS functions for slideshow -->
+<script>
+    var slideIndex = 1;
+        showSlides(slideIndex);
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none"
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+    }
+</script>
 
 <!-- About section -->
     <div class="Row" id="About">
@@ -55,7 +157,7 @@
 
         <div class="Column_1"> <!-- Right column -->
             <h1>About</h1>
-                <p>I am a software developer who loves to code! I am also a father of two and an enthusiastic amateur pianist.<br><br>I am a graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>’s C# and .NET Framework Boot Camp. I am trained and experienced in the following web and programming languages: HTML, CSS, JavaScript, SQL, C#, Python, and more. <br><br>I am a full-stack developer and would love to work with you on your project. <a href="#Contact">Contact</a> me below!</p>
+                <p>I am a software developer who loves to code! Outside of my professional life, I am a devoted father and an enthusiastic amateur pianist.<br><br>A graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>’s C# and .NET Framework Boot Camp, I am trained and experienced in the following web and programming languages: HTML, CSS, JavaScript, SQL, C#, Python, and more. <br><br>I am a full-stack developer and would love to work with you on your project. <a href="#Contact">Contact</a> me below!</p>
         </div>
     </div>
 
@@ -71,25 +173,28 @@
             <a href="https://github.com/scherzoq" target=_blank"><img src="Stylesheet/Images/GitHub.png" alt="GitHub"></a>
         </div>
     </div>
+</div>
 
 <!-- Contact section -->
-    <div class="Row" id="Contact">
-        <div class="Column_3"> <!-- Contact image, left column -->
-            <img src="Stylesheet/Images/Contact.jpg" alt="Contact_Image">
-        </div>
-    
-        <div class="Column_4"> <!-- Contact form, right column -->
-            <h1>Contact</h1>
-                <form action="" method="get">
-                    <label>Name:</label>
-                        <input type="text" placeholder="Please enter your name here">
-                    <label>Email:</label>
-                        <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                    <label>Message:</label>
-                        <input type="text" id="Message" name="Message" placeholder="Please enter your message here">
-                        <input type="submit" value="Submit"
+    <div id="Contact">
+        <button onclick="openForm()" class="Pop_Up_Button"> CONTACT </button>
+            <div class="form-popup" id="myForm">
+                <form action="https://formspree.io/johntaichin@gmail.com" method="POST" class="form-container">
+                <h1>Contact</h1>
+                    <label for="name"><b>Name</b></label>
+                        <input type="text" placeholder="Type your name here" name="name" required>
+                    <label for="phone"><b>Phone</b></label>
+                        <input type="text" placeholder="Enter your phone number here" name="phone">
+                    <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Type your email address here" name="email" required>
+                    <label for="message"><b>Message</b></label>
+                        <input type="text" placeholder="Type your message here" name="message">
+                
+                 <button type="submit" class="btn submit">SUBMIT</button>
+                 <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+                
                 </form>
-        </div>
+            </div>
     </div>
 
 <!-- Footer section -->
