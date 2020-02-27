@@ -277,6 +277,16 @@ p {
     padding-right: 1vw;
 }
 
+/* List elements */
+ul {
+    font-family: Perpetua, Rockwell Extra Bold;
+    text-align: justify;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+}
+
 /* Center align elements */
 center {
     font-family: Perpetua, Rockwell Extra Bold;
@@ -316,6 +326,13 @@ center:hover {
 
 /* Paragraph element hover effect */
 p:hover {
+    color: #00004d;
+    transition: transform 1s;
+    transform: scale(1.01);
+}
+
+/* List hover effect */
+ul:hover {
     color: #00004d;
     transition: transform 1s;
     transform: scale(1.01);
