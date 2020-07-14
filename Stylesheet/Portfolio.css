@@ -240,7 +240,7 @@ body.fade-out {
     float: left;
     width: 50%;
     padding: 1.6%;
-    height: 450px;
+    height: 75vh;
     background-color: #f2f2f2;
 }
 
@@ -248,7 +248,7 @@ body.fade-out {
     float: left;
     width: 50%;
     padding: 1.6%;
-    height: 450px;
+    height: 75vh;
     background-color: #4d4d4d;
 }
 
@@ -272,7 +272,7 @@ p {
     font-family: Perpetua, Rockwell Extra Bold;
     text-align: justify;
     letter-spacing: .1vw;
-    font-size: 1.25vw;
+    font-size: 1.5vw;
     padding-left: 1vw;
     padding-right: 1vw;
 }
@@ -282,7 +282,7 @@ ul {
     font-family: Perpetua, Rockwell Extra Bold;
     text-align: justify;
     letter-spacing: .1vw;
-    font-size: 1.25vw;
+    font-size: 1.5vw;
     padding-left: 3vw;
     padding-right: 3vw;
 }
